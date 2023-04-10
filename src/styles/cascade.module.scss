@@ -1,0 +1,170 @@
+.tree {
+  $color: #222;
+  $border-color: #ddd;
+  $background-color: #eee;
+  $border-weight: 2px;
+  $margin: 10px;
+  margin: $margin * 1.5;
+  padding: 0;
+  &:not(:empty):before,
+  &:not(:empty):after,
+  ul:not(:empty):before,
+  ul:not(:empty):after,
+  li:not(:empty):before,
+  li:not(:empty):after {
+    display: block;
+    position: absolute;
+    content: "";
+  }
+
+  ul,
+  li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  li > div {
+    background-color: $background-color;
+    color: $color;
+    padding: 5px;
+    display: inline-block;
+  }
+
+  &.cascade {
+    li {
+      margin-left: 2 * $margin;
+
+      div {
+        margin-top: $margin;
+      }
+
+      &:before {
+        border-left: $border-weight dotted $border-color;
+        height: 100%;
+        width: 0;
+        top: 0;
+        left: -$margin;
+      }
+
+      &:after {
+        border-top: $border-weight dotted $border-color;
+        width: $margin;
+        left: -$margin;
+        top: $margin + 6;
+      }
+
+      &:last-child:before {
+        height: $margin + 6;
+        top: 0;
+      }
+    }
+
+    & > li {
+      &:first-child:before {
+        top: $margin * 2;
+      }
+
+      &:only-child {
+        margin-left: 0;
+      }
+
+      &:only-child:before,
+      &:only-child:after {
+        content: none;
+      }
+    }
+  }
+
+  %subcascade {
+    flex-direction: column;
+    align-items: start;
+    padding: 0 $margin;
+
+    &:before {
+      left: 2 * $margin;
+    }
+
+    &:after {
+      left: 0;
+    }
+
+    &:first-child:after {
+      left: 2 * $margin;
+      width: 100%;
+    }
+
+    &:last-child:after {
+      left: 0;
+      width: 2 * $margin;
+    }
+
+    ul,
+    li {
+      display: block;
+    }
+
+    ul:before,
+    ul:after,
+    li:before,
+    li:after {
+      border: none;
+    }
+
+    div {
+      margin: 0;
+      margin-top: $margin;
+    }
+
+    li {
+      margin-left: 2 * $margin;
+
+      &:before {
+        border-left: $border-weight dotted $border-color;
+        height: 100%;
+        width: 0;
+        top: 0;
+        left: -$margin;
+      }
+
+      &:after {
+        border-top: $border-weight dotted $border-color;
+        width: $margin;
+        height: 0;
+        left: -$margin;
+        top: $margin * 2;
+        content: "";
+      }
+
+      &:last-child:before {
+        height: $margin * 2;
+        top: 0;
+      }
+    }
+  }
+}
+
+.tree .item-center {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  border-radius: 4px;
+  user-select: none;
+  .item-pin {
+    opacity: 1;
+    transition: all 100ms ease-in;
+  }
+  .item-pin-hover {
+    opacity: 0;
+  }
+  &:hover {
+    .item-pin-hover {
+      opacity: 1;
+    }
+  }
+}

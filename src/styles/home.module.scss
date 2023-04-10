@@ -1,0 +1,195 @@
+.graphtab {
+  display: flex;
+  // max-width: 1220px;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1.5px solid #e3e3e3;
+  border-radius: 4px;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: 39% 1fr;
+}
+.graphtab .tabs {
+  flex: 1;
+  // padding: 45px;
+  border-radius: 4px;
+  border: 1.5px solid #e3e3e3;
+}
+.raectselectbox {
+  flex: 3;
+}
+.raectselectbox ul {
+  display: flex;
+  justify-content: center;
+}
+.raectselectbox ul li {
+  margin-left: 10px;
+  list-style: none;
+}
+.raectselectbox ul li select {
+  width: 120px;
+  padding: 5px 5px;
+}
+
+// TABS
+.graphtab .tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: calc(100vh - 70px);
+  overflow: auto;
+}
+
+.tab-container {
+  display: flex;
+  padding: 10px;
+  border-radius: 6px;
+  flex-direction: column;
+  border: 1px solid #eee;
+  .label {
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    transition: all 0.5s ease;
+    color: #555;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+  }
+}
+
+.tab-container ul {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  gap: 4px;
+  transition: all 200ms ease-in;
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #000;
+    justify-content: space-between;
+    user-select: none;
+    cursor: pointer;
+    .name {
+      color: #fff;
+      transition: all 0.5s ease;
+      text-transform: capitalize;
+    }
+    svg {
+      opacity: 0;
+      transition: all 150ms ease-in;
+    }
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+}
+.mainlabel {
+  padding: 10px;
+  background: none;
+  cursor: pointer;
+  color: #949494;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition: all 0.5s ease;
+  text-transform: capitalize;
+  border-bottom: 1px solid #eee;
+}
+
+.graphtab .tabs ul li span {
+  // margin-left: 10px;
+}
+.graphtab .tabs ul li button:hover {
+  background-color: #fff;
+  color: #000;
+  transition: all 0.5s ease;
+}
+.graphtab .reactgraph {
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1.5px solid #e3e3e3;
+}
+
+.graphtab .reactgraph ul {
+  user-select: none;
+  select {
+    outline: none;
+    border-radius: 4px;
+    border: 1.5px solid #e3e3e3;
+  }
+}
+
+.selected-chips {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #2196f3;
+  border-radius: 4px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: #fff;
+  ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 7px;
+    li {
+      gap: 4px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      background: #f1f1f1;
+      font-size: small;
+      border-radius: 4px;
+      span {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0.5rem;
+  margin-top: 10px;
+  border-radius: 8px;
+  li {
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    position: relative;
+    background: rgb(241, 241, 241);
+  }
+}
+.close-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+  justify-content: center;
+  &:hover {
+    background: #d1d1d1;
+  }
+}
